@@ -16,11 +16,12 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"prisma:generate": "prisma generate",
-		"prisma:migrate": "prisma migrate dev",
-		"prisma:studio": "prisma studio",
-		"prisma:push": "prisma db push",
-		"prisma:seed": "prisma db seed"
+		"postinstall": "prisma generate",
+		"db:generate": "prisma migrate dev",
+		"db:migrate": "prisma migrate deploy",
+		"db:push": "prisma db push",
+		"db:studio": "prisma studio",
+		"db:seed": "prisma db seed"
 	},
 	"prisma": {
 		"seed": "tsx prisma/seed.ts"
