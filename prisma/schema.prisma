@@ -11,17 +11,17 @@ datasource db {
 }
 
 model Bookmark {
-  id          String      @id @default(uuid())
-  title       String
-  url         String
-  category    Category    @relation(fields: [categoryId], references: [id])
-  categoryId  String
-  dateAdded   DateTime    @default(now())
-  lastChecked DateTime?
-  isAvailable Boolean?
-  isPrivate   Boolean     @default(false)
-  comment     String?
-  tags        Tag[]       @relation("BookmarkToTag")
+  id           String        @id @default(uuid())
+  title        String
+  url          String
+  description  String?
+  category     Category      @relation(fields: [categoryId], references: [id])
+  categoryId   String
+  dateAdded    DateTime      @default(now())
+  lastChecked  DateTime?
+  isAvailable  Boolean?
+  isPrivate    Boolean       @default(false)
+  tags         Tag[]         @relation("BookmarkToTag")
   healthChecks HealthCheck[]
 
   @@index([categoryId])
